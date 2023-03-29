@@ -1,0 +1,102 @@
+type AirdropClaimed @entity {
+  id: ID!
+  claimContract: Bytes! # address
+  user: Bytes! # address
+  token: Bytes! # address
+  claimableAmount: BigInt! # uint256
+  airdropAmount: BigInt! # uint256
+}
+
+type ChangeClaimAmountDetails @entity {
+  id: ID!
+  claimContract: Bytes! # address
+  claimAmountDetails_isMaxClaimable: Boolean! # bool
+  claimAmountDetails_maxClaimable: BigInt! # uint256
+  claimAmountDetails_totalClaimAmount: BigInt! # uint256
+  claimAmountDetails_tokenIds: [BigInt]! # uint256[]
+}
+
+type ChangeCooldownDetails @entity {
+  id: ID!
+  claimContract: Bytes! # address
+  cooldownDetails_hasCooldownPeriod: Boolean! # bool
+  cooldownDetails_cooldownPeriod: BigInt! # uint256
+}
+
+type ChangeRollbackAddress @entity {
+  id: ID!
+  claimContract: Bytes! # address
+  newAddress: Bytes! # address
+}
+
+type ChangeRoot @entity {
+  id: ID!
+  claimContract: Bytes! # address
+  newRoot: Bytes! # bytes32
+}
+
+type ChangeStartAndEndTime @entity {
+  id: ID!
+  claimContract: Bytes! # address
+  newStartTime: BigInt! # uint256
+  newEndTime: BigInt! # uint256
+}
+
+type ClaimContractDeployed @entity {
+  id: ID!
+  claimSettings_creatorAddress: Bytes! # address
+  claimSettings_walletAddress: Bytes! # address
+  claimSettings_airdropToken: Bytes! # address
+  claimSettings_daoToken: Bytes! # address
+  claimSettings_hasAllowanceMechanism: Boolean! # bool
+  claimSettings_isNFT: Boolean! # bool
+  claimSettings_nftTotalSupply: BigInt! # uint256
+  claimSettings_isEnabled: Boolean! # bool
+  claimSettings_startTime: BigInt! # uint256
+  claimSettings_endTime: BigInt! # uint256
+  claimSettings_rollbackAddress: Bytes! # address
+  claimSettings_merkleRoot: Bytes! # bytes32
+  claimSettings_permission: Int! # uint8
+  claimSettings_claimAmountDetails_isMaxClaimable: Boolean! # bool
+  claimSettings_claimAmountDetails_maxClaimable: BigInt! # uint256
+  claimSettings_claimAmountDetails_totalClaimAmount: BigInt! # uint256
+  claimSettings_claimAmountDetails_tokenIds: [BigInt]! # uint256[]
+  claimSettings_cooldownDetails_hasCooldownPeriod: Boolean! # bool
+  claimSettings_cooldownDetails_cooldownPeriod: BigInt! # uint256
+  admin: Bytes! # address
+  claimContract: Bytes! # address
+}
+
+type RoleAdminChanged @entity {
+  id: ID!
+  role: Bytes! # bytes32
+  previousAdminRole: Bytes! # bytes32
+  newAdminRole: Bytes! # bytes32
+}
+
+type RoleGranted @entity {
+  id: ID!
+  role: Bytes! # bytes32
+  account: Bytes! # address
+  sender: Bytes! # address
+}
+
+type RoleRevoked @entity {
+  id: ID!
+  role: Bytes! # bytes32
+  account: Bytes! # address
+  sender: Bytes! # address
+}
+
+type RollbackTokens @entity {
+  id: ID!
+  claimContract: Bytes! # address
+  rollbackAddress: Bytes! # address
+  amount: BigInt! # uint256
+}
+
+type ToggleClaim @entity {
+  id: ID!
+  claimContract: Bytes! # address
+  status: Boolean! # bool
+}

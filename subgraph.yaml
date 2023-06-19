@@ -1,16 +1,17 @@
-specVersion: 0.0.1
+specVersion: 0.0.4
 schema:
   file: ./schema.graphql
 dataSources:
   - kind: ethereum
     name: ClaimEmitter
-    network: goerli
+    network: matic
     source:
-      address: "0xbBdAC26eDf4c8C18501D6ed5DDa91f29a09B16b2"
+      address: "0x9E7A4e9c7c7D8C18BE05537673e48aa88c0377d7"
+      startBlock: 42455900
       abi: ClaimEmitter
     mapping:
       kind: ethereum/events
-      apiVersion: 0.0.5
+      apiVersion: 0.0.6
       language: wasm/assemblyscript
       entities:
         - AirdropClaimed

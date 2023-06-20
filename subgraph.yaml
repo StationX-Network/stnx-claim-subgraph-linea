@@ -7,7 +7,7 @@ dataSources:
     network: matic
     source:
       address: "0x9E7A4e9c7c7D8C18BE05537673e48aa88c0377d7"
-      startBlock: 42455900
+      startBlock: 829066
       abi: ClaimEmitter
     mapping:
       kind: ethereum/events
